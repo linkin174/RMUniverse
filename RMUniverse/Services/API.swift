@@ -10,7 +10,7 @@ import Foundation
 struct API {
     static let scheme = "https"
     static let host = "rickandmortyapi.com"
-    static let getCharacters = "character"
+    static let getCharacters = "/api/character"
     static let getLocations = "location"
     static let getEpisodes = "episode"
 }
