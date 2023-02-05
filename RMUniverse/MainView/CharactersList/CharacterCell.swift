@@ -18,7 +18,7 @@ struct CharacterCell: View {
                     image
                         .resizable()
                         .scaledToFit()
-                    .cornerRadius(16)
+                        .cornerRadius(16)
                     Text(fullName)
                         .font(.system(size: 14))
                         .multilineTextAlignment(.center)
@@ -26,10 +26,16 @@ struct CharacterCell: View {
                 }
             } placeholder: {
                 VStack {
-                    Image("placeholder")
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(16)
+                    ZStack {
+                        Image("placeholder")
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(16)
+                        .blur(radius: 2)
+                        ProgressView()
+                            .scaleEffect(2)
+                            .tint(.black)
+                    }
                     Text("Loading...")
                         .font(.system(size: 14))
                         .multilineTextAlignment(.center)

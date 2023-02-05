@@ -122,7 +122,6 @@
 				70EC8FCC298FB8FA00F39FF7 /* CharacterView */,
 				70EC8FD129900BDC00F39FF7 /* LocationsView */,
 				70EC8FD62990145E00F39FF7 /* CharactersList */,
-				70D61E4B298E900700ADDE88 /* CharacterCell.swift */,
 				70004D7B298CF3A700D277EF /* MainViewModel.swift */,
 			);
 			path = MainView;
@@ -169,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				70EC8FC5298FA62500F39FF7 /* CharactersView.swift */,
+				70D61E4B298E900700ADDE88 /* CharacterCell.swift */,
 				70EC8FD72990146D00F39FF7 /* CharactersListViewModel.swift */,
 			);
 			path = CharactersList;

@@ -25,9 +25,9 @@ struct MainView: View {
     var body: some View {
         TabView {
             CharactersView(viewModel: CharactersListViewModel(fetcher: FetcherService(networkService: NetworkService())))
-            .tabItem {
-                Text("Characters")
-            }
+                .tabItem {
+                   Label("Characters", systemImage: "person")
+                }
 
            LocationsView(viewModel: LocationsViewModel(fetcher: FetcherService(networkService: NetworkService())))
                 .tabItem {

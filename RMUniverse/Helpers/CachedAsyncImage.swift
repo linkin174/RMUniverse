@@ -66,7 +66,6 @@ struct CachedAsyncImage<Content: View, Placeholder: View>: View {
 
 private enum ImageCache {
     private static var cache: [URL: Image] = [:]
-
     static subscript(url: URL) -> Image? {
         get {
             ImageCache.cache[url]

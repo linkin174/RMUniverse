@@ -44,6 +44,7 @@ struct CharacterView: View {
                         .frame(height: 100)
                         .cornerRadius(16)
                         .shadow(color: .green.opacity(0.5), radius: 10)
+                        .redacted(reason: viewModel.episodes.isEmpty ? .placeholder : [])
                 }
                 .padding(.horizontal, 8)
             } header: {
