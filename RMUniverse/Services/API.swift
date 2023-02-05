@@ -11,6 +11,6 @@ struct API {
     static let scheme = "https"
     static let host = "rickandmortyapi.com"
     static let getCharacters = "/api/character"
-    static let getLocations = "location"
-    static let getEpisodes = "episode"
+    static let getLocations = "/api/location"
+    static let getEpisodes = "/api/episode"
 }

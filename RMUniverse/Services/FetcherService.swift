@@ -25,13 +25,35 @@ final class FetcherService {
 
     // MARK: - Public Methods
 
-    func getAllCharacters(page: Int? = nil) async throws -> [Character] {
+    func getAllCharacters(page: Int? = nil) async throws -> CharacterResponse {
         do {
             let parameters = makeParameters(for: page)
             let data = try await networkService.request(path: API.getCharacters, parameters: parameters)
             guard let response = try? decoder.decode(CharacterResponse.self, from: data) else { throw APIError.badDecoding }
             print(response.results.map { $0.name })
-            return response.results
+            return response
+        } catch let error {
+            print(error.localizedDescription)
+            throw error
+        }
+    }
+
+    func loadNextPage<T: Codable>(url: String, type: T.Type) async throws -> T {
+        do {
+            guard let url = URL(string: url) else { throw APIError.badURL }
+            let data = try await networkService.requset(from: url)
+            guard let response = try? decoder.decode(T.self, from: data) else { throw APIError.badDecoding }
+            return response
+        } catch let error {
+            throw error
+        }
+    }
+
+    func fetchAllLocations() async throws -> LocationResponse {
+        do {
+            let data = try await networkService.request(path: API.getLocations, parameters: nil)
+            guard let response = try? decoder.decode(LocationResponse.self, from: data) else { throw APIError.badDecoding }
+            return response
         } catch let error {
             print(error.localizedDescription)
             throw error
