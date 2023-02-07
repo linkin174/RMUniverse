@@ -12,23 +12,37 @@
 		70004D6D298CF2CA00D277EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70004D6C298CF2CA00D277EF /* Assets.xcassets */; };
 		70004D70298CF2CA00D277EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70004D6F298CF2CA00D277EF /* Preview Assets.xcassets */; };
 		70004D78298CF2F000D277EF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70004D77298CF2F000D277EF /* API.swift */; };
-		70004D7A298CF39C00D277EF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70004D79298CF39C00D277EF /* MainView.swift */; };
-		70004D7C298CF3A700D277EF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70004D7B298CF3A700D277EF /* MainViewModel.swift */; };
 		70004D80298CF48500D277EF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70004D7F298CF48500D277EF /* NetworkService.swift */; };
 		70004D82298CF49A00D277EF /* FetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70004D81298CF49A00D277EF /* FetcherService.swift */; };
 		70004D87298D007E00D277EF /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70004D86298D007E00D277EF /* CharacterResponse.swift */; };
 		70004D89298D01B500D277EF /* LocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70004D88298D01B500D277EF /* LocationResponse.swift */; };
 		70004D8B298D01CA00D277EF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70004D8A298D01CA00D277EF /* Info.swift */; };
+		708C5B6D299256FE0079FC35 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 708C5B6C299256FE0079FC35 /* Swinject */; };
+		708C5B7629928BAA0079FC35 /* UIImage + AvaregeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C5B7529928BAA0079FC35 /* UIImage + AvaregeColor.swift */; };
 		70D61E4C298E900700ADDE88 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D61E4B298E900700ADDE88 /* CharacterCell.swift */; };
 		70EC8FC4298F994400F39FF7 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FC3298F994400F39FF7 /* CachedAsyncImage.swift */; };
-		70EC8FC6298FA62500F39FF7 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FC5298FA62500F39FF7 /* CharactersView.swift */; };
+		70EC8FC6298FA62500F39FF7 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FC5298FA62500F39FF7 /* CharacterListView.swift */; };
 		70EC8FC9298FAD5D00F39FF7 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FC8298FAD5D00F39FF7 /* LocationsView.swift */; };
 		70EC8FCB298FB56000F39FF7 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FCA298FB56000F39FF7 /* CharacterView.swift */; };
 		70EC8FCE298FB90600F39FF7 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FCD298FB90600F39FF7 /* CharacterViewModel.swift */; };
 		70EC8FD0298FB93700F39FF7 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FCF298FB93700F39FF7 /* Episode.swift */; };
 		70EC8FD529900BF700F39FF7 /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FD429900BF700F39FF7 /* LocationsViewModel.swift */; };
-		70EC8FD82990146D00F39FF7 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FD72990146D00F39FF7 /* CharactersListViewModel.swift */; };
+		70EC8FD82990146D00F39FF7 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FD72990146D00F39FF7 /* CharacterListViewModel.swift */; };
+		70EC8FDD2991074000F39FF7 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC8FDC2991074000F39FF7 /* LocationView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		708C5B712992570D0079FC35 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		70004D65298CF2CA00D277EF /* RMUniverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMUniverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,22 +51,22 @@
 		70004D6C298CF2CA00D277EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70004D6F298CF2CA00D277EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		70004D77298CF2F000D277EF /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		70004D79298CF39C00D277EF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		70004D7B298CF3A700D277EF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		70004D7F298CF48500D277EF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		70004D81298CF49A00D277EF /* FetcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetcherService.swift; sourceTree = "<group>"; };
 		70004D86298D007E00D277EF /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
 		70004D88298D01B500D277EF /* LocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResponse.swift; sourceTree = "<group>"; };
 		70004D8A298D01CA00D277EF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		708C5B7529928BAA0079FC35 /* UIImage + AvaregeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage + AvaregeColor.swift"; sourceTree = "<group>"; };
 		70D61E4B298E900700ADDE88 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		70EC8FC3298F994400F39FF7 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
-		70EC8FC5298FA62500F39FF7 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
+		70EC8FC5298FA62500F39FF7 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		70EC8FC8298FAD5D00F39FF7 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		70EC8FCA298FB56000F39FF7 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		70EC8FCD298FB90600F39FF7 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		70EC8FCF298FB93700F39FF7 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		70EC8FD429900BF700F39FF7 /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
-		70EC8FD72990146D00F39FF7 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
+		70EC8FD72990146D00F39FF7 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		70EC8FDC2991074000F39FF7 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				708C5B6D299256FE0079FC35 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,9 +103,7 @@
 				70EC8FC2298F992700F39FF7 /* Helpers */,
 				70004D83298CF68E00D277EF /* Models */,
 				70004D76298CF2E700D277EF /* Services */,
-				70004D68298CF2CA00D277EF /* RMUniverseApp.swift */,
-				70004D6A298CF2CA00D277EF /* ContentView.swift */,
-				70004D7D298CF3AB00D277EF /* MainView */,
+				708C5B742992829C0079FC35 /* App */,
 				70004D6C298CF2CA00D277EF /* Assets.xcassets */,
 				70004D6E298CF2CA00D277EF /* Preview Content */,
 			);
@@ -115,18 +128,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		70004D7D298CF3AB00D277EF /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				70004D79298CF39C00D277EF /* MainView.swift */,
-				70EC8FCC298FB8FA00F39FF7 /* CharacterView */,
-				70EC8FD129900BDC00F39FF7 /* LocationsView */,
-				70EC8FD62990145E00F39FF7 /* CharactersList */,
-				70004D7B298CF3A700D277EF /* MainViewModel.swift */,
-			);
-			path = MainView;
-			sourceTree = "<group>";
-		};
 		70004D83298CF68E00D277EF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,10 +139,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		708C5B742992829C0079FC35 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				70004D68298CF2CA00D277EF /* RMUniverseApp.swift */,
+				70004D6A298CF2CA00D277EF /* ContentView.swift */,
+				70EC8FD62990145E00F39FF7 /* CharactersList */,
+				70EC8FCC298FB8FA00F39FF7 /* CharacterView */,
+				70EC8FD129900BDC00F39FF7 /* LocationsView */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		70EC8FC2298F992700F39FF7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				70EC8FC3298F994400F39FF7 /* CachedAsyncImage.swift */,
+				708C5B7529928BAA0079FC35 /* UIImage + AvaregeColor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -159,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				70EC8FC8298FAD5D00F39FF7 /* LocationsView.swift */,
+				70EC8FDC2991074000F39FF7 /* LocationView.swift */,
 				70EC8FD429900BF700F39FF7 /* LocationsViewModel.swift */,
 			);
 			path = LocationsView;
@@ -167,9 +182,9 @@
 		70EC8FD62990145E00F39FF7 /* CharactersList */ = {
 			isa = PBXGroup;
 			children = (
-				70EC8FC5298FA62500F39FF7 /* CharactersView.swift */,
+				70EC8FC5298FA62500F39FF7 /* CharacterListView.swift */,
 				70D61E4B298E900700ADDE88 /* CharacterCell.swift */,
-				70EC8FD72990146D00F39FF7 /* CharactersListViewModel.swift */,
+				70EC8FD72990146D00F39FF7 /* CharacterListViewModel.swift */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -184,12 +199,16 @@
 				70004D61298CF2CA00D277EF /* Sources */,
 				70004D62298CF2CA00D277EF /* Frameworks */,
 				70004D63298CF2CA00D277EF /* Resources */,
+				708C5B712992570D0079FC35 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RMUniverse;
+			packageProductDependencies = (
+				708C5B6C299256FE0079FC35 /* Swinject */,
+			);
 			productName = RMUniverse;
 			productReference = 70004D65298CF2CA00D277EF /* RMUniverse.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +237,9 @@
 				Base,
 			);
 			mainGroup = 70004D5C298CF2CA00D277EF;
+			packageReferences = (
+				708C5B6B299256FE0079FC35 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 70004D66298CF2CA00D277EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -244,16 +266,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70004D7C298CF3A700D277EF /* MainViewModel.swift in Sources */,
 				70004D89298D01B500D277EF /* LocationResponse.swift in Sources */,
 				70004D6B298CF2CA00D277EF /* ContentView.swift in Sources */,
 				70D61E4C298E900700ADDE88 /* CharacterCell.swift in Sources */,
-				70EC8FD82990146D00F39FF7 /* CharactersListViewModel.swift in Sources */,
+				70EC8FD82990146D00F39FF7 /* CharacterListViewModel.swift in Sources */,
 				70004D82298CF49A00D277EF /* FetcherService.swift in Sources */,
-				70004D7A298CF39C00D277EF /* MainView.swift in Sources */,
 				70004D87298D007E00D277EF /* CharacterResponse.swift in Sources */,
 				70004D78298CF2F000D277EF /* API.swift in Sources */,
-				70EC8FC6298FA62500F39FF7 /* CharactersView.swift in Sources */,
+				70EC8FC6298FA62500F39FF7 /* CharacterListView.swift in Sources */,
 				70004D80298CF48500D277EF /* NetworkService.swift in Sources */,
 				70004D69298CF2CA00D277EF /* RMUniverseApp.swift in Sources */,
 				70EC8FC4298F994400F39FF7 /* CachedAsyncImage.swift in Sources */,
@@ -261,7 +281,9 @@
 				70EC8FD529900BF700F39FF7 /* LocationsViewModel.swift in Sources */,
 				70EC8FD0298FB93700F39FF7 /* Episode.swift in Sources */,
 				70EC8FCB298FB56000F39FF7 /* CharacterView.swift in Sources */,
+				70EC8FDD2991074000F39FF7 /* LocationView.swift in Sources */,
 				70004D8B298D01CA00D277EF /* Info.swift in Sources */,
+				708C5B7629928BAA0079FC35 /* UIImage + AvaregeColor.swift in Sources */,
 				70EC8FC9298FAD5D00F39FF7 /* LocationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,6 +485,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		708C5B6B299256FE0079FC35 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		708C5B6C299256FE0079FC35 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 708C5B6B299256FE0079FC35 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 70004D5D298CF2CA00D277EF /* Project object */;
 }

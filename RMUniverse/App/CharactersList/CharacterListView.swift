@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct CharactersView: View {
+struct CharacterListView: View {
     // MARK: - Wrapped Values
-
-    @StateObject var viewModel: CharactersListViewModel
+    @StateObject var viewModel: CharacterListViewModel
     @State private var searchString = ""
 
     private let gridItems = [
@@ -21,8 +20,8 @@ struct CharactersView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: gridItems) {
-                    ForEach(viewModel.isSearching ? viewModel.searchResults : viewModel.characters) { character in
+                LazyVGrid(columns: gridItems, spacing: 8) {
+                    ForEach(viewModel.characters) { character in
                         NavigationLink(destination: CharacterView(viewModel: CharacterViewModel(character: character))) {
                             CharacterCell(fullName: character.name, imageURL: character.image)
                                 .onAppear {
@@ -61,12 +60,12 @@ struct CharactersView: View {
 
             }
         }
+        .preferredColorScheme(.dark)
     }
 }
 
 struct CharactersView_Previews: PreviewProvider {
     static var previews: some View {
-        CharactersView(viewModel: CharactersListViewModel(fetcher: FetcherService(networkService: NetworkService())))
-            .preferredColorScheme(.dark)
+        CharacterListView(viewModel: CharacterListViewModel(fetcher: FetcherService(networkService: NetworkService())))
     }
 }

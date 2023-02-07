@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LocationsView: View {
-
     // MARK: - Wrapped Properties
 
     @StateObject var viewModel: LocationsViewModel
@@ -23,18 +22,32 @@ struct LocationsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: grid) {
+                LazyVGrid(columns: grid, spacing: 8) {
                     ForEach(viewModel.locations.sorted(by: { $0.id < $1.id })) { location in
-                        LocationsCellView(location: location)
-                            .onAppear {
-                                let maxID = viewModel.locations.map { $0.id }.max()
-                                if location.id == maxID {
-                                    viewModel.fetchLocations()
+                        NavigationLink {
+                            LocationView(viewModel: viewModel, location: location)
+                        } label: {
+                            LocationsCellView(location: location)
+                                .onAppear {
+                                    let maxID = viewModel.locations.map { $0.id }.max()
+                                    if location.id == maxID {
+                                        viewModel.fetchLocations()
+                                    }
                                 }
-                            }
+                        }
                     }
                 }
             }
+            .navigationTitle("Locations")
+            .padding(8)
+            .background(
+                Image("mainBG")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                    .opacity(0.2)
+                    .blur(radius: 5)
+            )
             .task {
                 viewModel.fetchLocations()
             }
@@ -49,11 +62,15 @@ struct LocationsCellView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.red)
-            .frame(height: 50)
+                .foregroundColor(.black)
+                .frame(height: 50)
+                .cornerRadius(16)
+                .shadow(color: .green.opacity(0.2), radius: 5)
             Text(location.name)
+                .font(.footnote)
                 .multilineTextAlignment(.center)
         }
+        .foregroundColor(.white)
     }
 }
 

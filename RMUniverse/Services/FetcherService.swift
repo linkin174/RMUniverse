@@ -6,11 +6,19 @@
 //
 
 import Foundation
+import Swinject
 
-final class FetcherService {
+protocol FetchingProtocol {
+    func getAllCharacters() async throws -> CharacterResponse
+    func fetchCharacters(for characterURLs: [String]) async throws -> [Character]
+    func loadNextPage<T: Codable>(url: String, type: T.Type) async throws -> T
+    func fetchAllLocations() async throws -> LocationResponse
+}
+
+final class FetcherService: FetchingProtocol {
     // MARK: - Private Properties
 
-    private let networkService: NetworkService
+    private let networkService: NetworkingProtocol?
 
     private let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
@@ -19,18 +27,16 @@ final class FetcherService {
     }()
 
     // MARK: - Initializers
-    init(networkService: NetworkService) {
+    init(networkService: NetworkingProtocol?) {
         self.networkService = networkService
     }
 
     // MARK: - Public Methods
 
-    func getAllCharacters(page: Int? = nil) async throws -> CharacterResponse {
+    func getAllCharacters() async throws -> CharacterResponse {
         do {
-            let parameters = makeParameters(for: page)
-            let data = try await networkService.request(path: API.getCharacters, parameters: parameters)
+            guard let data = try await networkService?.request(path: API.getCharacters, parameters: nil) else { throw APIError.noData }
             guard let response = try? decoder.decode(CharacterResponse.self, from: data) else { throw APIError.badDecoding }
-            print(response.results.map { $0.name })
             return response
         } catch let error {
             print(error.localizedDescription)
@@ -38,10 +44,25 @@ final class FetcherService {
         }
     }
 
+    func fetchCharacters(for characterURLs: [String]) async throws -> [Character] {
+        var characters = [Character]()
+        for url in characterURLs {
+            guard let url = URL(string: url) else { return [] }
+            do {
+                guard let data = try await networkService?.request(from: url) else { throw APIError.noData }
+                let character = try decoder.decode(Character.self, from: data)
+                characters.append(character)
+            } catch let error {
+                throw error
+            }
+        }
+        return characters
+    }
+
     func loadNextPage<T: Codable>(url: String, type: T.Type) async throws -> T {
         do {
             guard let url = URL(string: url) else { throw APIError.badURL }
-            let data = try await networkService.requset(from: url)
+            guard let data = try await networkService?.request(from: url) else { throw APIError.noData }
             guard let response = try? decoder.decode(T.self, from: data) else { throw APIError.badDecoding }
             return response
         } catch let error {
@@ -51,7 +72,7 @@ final class FetcherService {
 
     func fetchAllLocations() async throws -> LocationResponse {
         do {
-            let data = try await networkService.request(path: API.getLocations, parameters: nil)
+            guard let data = try await networkService?.request(path: API.getLocations, parameters: nil) else { throw APIError.noData }
             guard let response = try? decoder.decode(LocationResponse.self, from: data) else { throw APIError.badDecoding }
             return response
         } catch let error {

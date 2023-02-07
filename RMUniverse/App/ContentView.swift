@@ -1,15 +1,17 @@
 //
-//  MainView.swift
+//  ContentView.swift
 //  RMUniverse
 //
 //  Created by Aleksandr Kretov on 03.02.2023.
 //
 
 import SwiftUI
+import Swinject
 
-struct MainView: View {
+struct ContentView: View {
+
     // MARK: - Wrapped Values
-    @StateObject private var viewModel: MainViewModel
+    @EnvironmentObject private var resolver: DependencyResolver
 
     // MARK: - Private Properties
     private let gridItems = [
@@ -17,19 +19,13 @@ struct MainView: View {
         GridItem(.flexible(), alignment: .center)
     ]
 
-
-    init(viewModel: MainViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-    }
-
     var body: some View {
         TabView {
-            CharactersView(viewModel: CharactersListViewModel(fetcher: FetcherService(networkService: NetworkService())))
+            CharacterListView(viewModel: CharacterListViewModel(fetcher: resolver.resolve(type: FetchingProtocol.self)))
                 .tabItem {
                    Label("Characters", systemImage: "person")
                 }
-
-           LocationsView(viewModel: LocationsViewModel(fetcher: FetcherService(networkService: NetworkService())))
+            LocationsView(viewModel: LocationsViewModel(fetcher: resolver.resolve(type: FetchingProtocol.self)))
                 .tabItem {
                     Text("Locations")
                 }
@@ -42,9 +38,9 @@ struct MainView: View {
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static let viewModel = MainViewModel(fetcher: FetcherService(networkService: NetworkService()))
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: viewModel)
+        ContentView()
+            .environmentObject(DependencyResolver())
     }
 }

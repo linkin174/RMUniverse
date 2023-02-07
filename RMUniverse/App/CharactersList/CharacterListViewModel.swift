@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class CharactersListViewModel: ObservableObject {
+final class CharacterListViewModel: ObservableObject {
 
     // MARK: - Wrapped Values
 
@@ -19,7 +19,7 @@ final class CharactersListViewModel: ObservableObject {
 
     // MARK: - Private Properties
 
-    private let fetcher: FetcherService
+    private let fetcher: FetchingProtocol?
 
     private var characterResponse: CharacterResponse? {
         didSet {
@@ -34,7 +34,7 @@ final class CharactersListViewModel: ObservableObject {
 
     // MARK: - Initializers
 
-    init(fetcher: FetcherService) {
+    init(fetcher: FetchingProtocol?) {
         self.fetcher = fetcher
     }
 
@@ -44,13 +44,13 @@ final class CharactersListViewModel: ObservableObject {
         Task {
             if let next = characterResponse?.info.next {
                 do {
-                    characterResponse = try await fetcher.loadNextPage(url: next, type: CharacterResponse.self)
+                    characterResponse = try await fetcher?.loadNextPage(url: next, type: CharacterResponse.self)
                 } catch {
                     errorMessage = error.localizedDescription
                 }
             } else {
                 do {
-                    characterResponse = try await fetcher.getAllCharacters()
+                    characterResponse = try await fetcher?.getAllCharacters()
                 } catch {
                     errorMessage = error.localizedDescription
                 }

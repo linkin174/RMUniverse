@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CharacterView: View {
+
     @StateObject private var viewModel: CharacterViewModel
 
     init(viewModel: CharacterViewModel) {
@@ -16,7 +17,9 @@ struct CharacterView: View {
 
     var body: some View {
         ScrollView {
-            CachedAsyncImage(url: URL(string: viewModel.character.image)!, transaction: .init(animation: .easeOut)) { image in
+            CachedAsyncImage(
+                url: URL(string: viewModel.character.image)!,
+                transaction: .init(animation: .easeOut)) { image in
                 image
                     .resizable()
                     .scaledToFit()
